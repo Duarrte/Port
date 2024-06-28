@@ -58,7 +58,7 @@ const education = {
 // habilidades
 const skills = {
   title: "Minhas habilidades",
-  description: "Minhas habilidades",
+  description: "Aqui estão algumas das minhas principais habilidades",
   skillList: [
     {
       icon: <FaPython />,
