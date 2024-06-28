@@ -2,7 +2,7 @@ import Link from "next/link";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa"; // Verifique se o pacote react-icons está instalado corretamente
 
 const socials = [
-    { icon: <FaGithub />, path: 'https://https://github.com/Duarrte' },
+    { icon: <FaGithub />, path: 'https://github.com/Duarrte' },
     { icon: <FaLinkedinIn />, path: 'https://linkedin.com/in/duarrte' },
 ];
 
