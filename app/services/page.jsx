@@ -33,31 +33,30 @@ const services = [
 
 const Services = () => {
   return (
-    <section className="min-h-[80vh] flex flex-col justify-center py-12 xl:py-0 px-4">
-      <div className="container mx-auto max-w-7xl">
-        <motion.div 
-          initial={{ opacity: 0 }} 
-          animate={{ opacity: 1, transition: { delay: 2.4, duration: 0.4, ease: "easeIn" } }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 xl:gap-16"
+    <section className="min-h-screen flex flex-col justify-center py-16 px-4 bg-gray-900">
+      <div className="container mx-auto max-w-6xl">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { delay: 1.5, duration: 0.5, ease: "easeInOut" } }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14"
         >
           {services.map((service, index) => (
-            <div key={index} className="flex-1 flex flex-col justify-center gap-4 md:gap-6 group">
-
-              {/* top */}
-              <div className="w-full flex justify-between items-center">
-                <div className="text-4xl md:text-5xl font-extrabold text-outline text-transparent group-hover:text-outline-hover transition-all duration-500">
+            <div key={index} className="flex flex-col gap-5 group">
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 group-hover:text-white transition-all duration-500">
                   {service.num}
-                </div>
-                <Link href={service.href} className="w-[50px] md:w-[70px] h-[50px] md:h-[70px] rounded-full bg-white group-hover:bg-accent transition-all duration-500 flex justify-center items-center hover:-rotate-45">
-                  <BsArrowDownRight className="text-primary text-xl md:text-3xl" />
+                </span>
+                <Link href={service.href}>
+                  <a className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white group-hover:bg-accent transition-all duration-500 flex justify-center items-center hover:rotate-45">
+                    <BsArrowDownRight className="text-blue-500 text-2xl md:text-3xl" />
+                  </a>
                 </Link>
               </div>
-              {/* title */}
-              <h2 className="text-2xl md:text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500">{service.title}</h2>
-              {/* description */}
-              <p className="text-white/60">{service.description}</p>
-              {/* border */}
-              <div className="border-b border-white/20 w-full"></div>
+              <h3 className="text-3xl md:text-4xl font-semibold text-white group-hover:text-blue-400 transition-all duration-500">
+                {service.title}
+              </h3>
+              <p className="text-white/70">{service.description}</p>
+              <div className="border-b border-gray-700 w-full"></div>
             </div>
           ))}
         </motion.div>
