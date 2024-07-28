@@ -10,38 +10,21 @@ const about = {
   title: 'Sobre mim',
   description: "Sou apaixonado por tecnologia e desenvolvimento de software. Sempre em busca de novos desafios e oportunidades para crescer profissionalmente.",
   info: [
-    {
-      fieldName: "Nome",
-      fieldValue: "Luan Duarte",
-    },
-    {
-      fieldName: "Nacionalidade",
-      fieldValue: "Brasileiro",
-    },
-    {
-      fieldName: "Email",
-      fieldValue: "lvassconcelos@gmail.com",
-    },
-    {
-      fieldName: "Freelance",
-      fieldValue: "Disponível",
-    },
-    {
-      fieldName: "Idiomas",
-      fieldValue: "Inglês, Português-BR",
-    },
+    { fieldName: "Nome", fieldValue: "Luan Duarte" },
+    { fieldName: "Nacionalidade", fieldValue: "Brasileiro" },
+    { fieldName: "Email", fieldValue: "lvassconcelos@gmail.com" },
+    { fieldName: "Freelance", fieldValue: "Disponível" },
+    { fieldName: "Idiomas", fieldValue: "Inglês, Português-BR" },
   ],
 };
 
-// experiência
 const experience = {
   icon: '/assets/resume/badge.svg',
-  title: 'Minhas experiências',
-  description: "Estou em busca da minha primeira oportunidade na área de Tecnologia da Informação",
+  title: 'Minhas Experiências',
+  description: "Estou em busca da minha primeira oportunidade na área de Tecnologia da Informação.",
   items: [],
 };
 
-// formação
 const education = {
   icon: '/assets/resume/cap.svg',
   title: 'Formação',
@@ -55,35 +38,16 @@ const education = {
   ],
 };
 
-// habilidades
 const skills = {
-  title: "Minhas habilidades",
-  description: "Aqui estão algumas das minhas principais habilidades",
+  title: "Minhas Habilidades",
+  description: "Algumas das minhas principais habilidades incluem:",
   skillList: [
-    {
-      icon: <FaPython />,
-      name: 'Python',
-    },
-    {
-      icon: <FaPhp />,
-      name: 'PHP',
-    },
-    {
-      icon: <FaReact />,
-      name: 'React',
-    },
-    {
-      icon: <FaDatabase />,
-      name: 'Banco de dados',
-    },
-    {
-      icon: <FaHtml5 />,
-      name: 'HTML',
-    },
-    {
-      icon: <FaCss3 />,
-      name: 'CSS',
-    },
+    { icon: <FaPython />, name: 'Python' },
+    { icon: <FaPhp />, name: 'PHP' },
+    { icon: <FaReact />, name: 'React' },
+    { icon: <FaDatabase />, name: 'Banco de Dados' },
+    { icon: <FaHtml5 />, name: 'HTML' },
+    { icon: <FaCss3 />, name: 'CSS' },
   ],
 };
 
@@ -91,19 +55,34 @@ const Resume = () => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1, transition: { delay: 2.4, duration: 0.4, ease: 'easeIn' } }}
+      animate={{ opacity: 1, transition: { delay: 0.2, duration: 0.4, ease: 'easeIn' } }}
       className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0"
     >
       <div className="container mx-auto">
-        <Tabs defaultValue="experience" className="flex flex-col xl:flex-row gap-[60px]">
+        <Tabs defaultValue="about" className="flex flex-col xl:flex-row gap-[60px]">
           <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6">
+            <TabsTrigger value="about">Sobre</TabsTrigger>
             <TabsTrigger value="experience">Experiência</TabsTrigger>
             <TabsTrigger value="education">Educação</TabsTrigger>
             <TabsTrigger value="skills">Habilidades</TabsTrigger>
-            <TabsTrigger value="about">Sobre</TabsTrigger>
           </TabsList>
 
           <div className="min-h-[70vh] w-full">
+            <TabsContent value="about" className="w-full">
+              <div className="flex flex-col gap-8 sm:mx-4">
+                <h3 className="text-4xl font-bold text-accent">{about.title}</h3>
+                <p className="max-w-[600px] text-white/60">{about.description}</p>
+                <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-4 gap-x-8 max-w-[620px]">
+                  {about.info.map((item, index) => (
+                    <li key={index} className="flex flex-col">
+                      <span className="text-white/60 font-semibold">{item.fieldName}:</span>
+                      <span className="text-xl">{item.fieldValue}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </TabsContent>
+
             <TabsContent value="experience" className="w-full">
               <div className="flex flex-col gap-[30px] text-center xl:text-left">
                 <h3 className="text-4xl font-bold">{experience.title}</h3>
@@ -172,21 +151,6 @@ const Resume = () => {
                     ))}
                   </ul>
                 </ScrollArea>
-              </div>
-            </TabsContent>
-
-            <TabsContent value="about" className="w-full text-left">
-              <div className="flex flex-col gap-8 sm:mx-4">
-                <h3 className="text-4xl font-bold text-accent">{about.title}</h3>
-                <p className="max-w-[600px] text-white/60">{about.description}</p>
-                <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-4 gap-x-8 max-w-[620px]">
-                  {about.info.map((item, index) => (
-                    <li key={index} className="flex flex-col">
-                      <span className="text-white/60 font-semibold">{item.fieldName}:</span>
-                      <span className="text-xl">{item.fieldValue}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
             </TabsContent>
           </div>
